@@ -83,7 +83,7 @@ const Home = () => {
                         />
                         ) : (
                         <FiMoon
-                            className="text-white text-2xl cursor-pointer hover:text-green-500"
+                            className="text-white text-2xl cursor-pointer hover:text-blue-500"
                             onClick={() => setIsDark(true)}
                         />
                         )}
@@ -100,7 +100,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="bg-gray-100 relative left-15 w-[calc(100%-3.75rem)] min-h-screen">
+            <div className="bg-gray-100 relative left-15 w-[calc(100%-3.75rem)] min-h-screen ">
                 {/* Main content based on pState */}
                 {pState === "chats" && <Chats/>}
             </div>
