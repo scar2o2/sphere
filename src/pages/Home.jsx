@@ -4,7 +4,7 @@ import { FaUserFriends } from "react-icons/fa";
 import { MdPersonAddAlt } from "react-icons/md";
 import { FiSettings, FiSun, FiMoon } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
-import Chats from "./chats.jsx";
+import Chats from "./Chats.jsx";
 
 const Home = () => {
     const aL = ["chats", "groups", "friends", "requests", "settings", "profile"];
