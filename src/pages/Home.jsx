@@ -5,6 +5,8 @@ import { MdPersonAddAlt } from "react-icons/md";
 import { FiSettings, FiSun, FiMoon } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import Chats from "./Chats.jsx";
+import Groups from "./Groups.jsx";
+import Friends from "./Friends.jsx";
 
 const Home = () => {
     const aL = ["chats", "groups", "friends", "requests", "settings", "profile"];
@@ -103,6 +105,8 @@ const Home = () => {
             <div className="bg-gray-100 relative left-15 w-[calc(100%-3.75rem)] min-h-screen ">
                 {/* Main content based on pState */}
                 {pState === "chats" && <Chats/>}
+                {pState === "groups" && <Groups/>}
+                {pState === "friends" && <Friends/>}
             </div>
         </>
     );
