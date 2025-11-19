@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Friends = () => {
-    const opt= ["All Friends", "Online", "Pending", "Blocked"];
+    const opt= ["All Friends", "Online", "Close Friends", "Blocked"];
     const flist= [
         {name: "Alice Johnson", status: "online", img: "user1.jpg"},
         {name: "Bob Smith", status: "offline", img: "user2.jpg"},
@@ -12,10 +12,14 @@ const Friends = () => {
         {name: "George Michael", status: "online", img: "user2.jpg"},
         {name: "Hannah Baker", status: "offline", img: "user3.jpg"},
     ];
+    const recentFriends= [
+        {name: "Ian Somerhalder", img: "user4.jpg"},
+        {name: "Jenna Coleman", img: "user5.jpg"},
+    ];
     const [optState,setOptState]= useState("All Friends");
   return (
     <>
-        <div className='w-full h-full p-8 gap-12 flex flex-col'>
+        <div className='w-full h-full p-8 gap-3 flex flex-col bg-white'>
             <div className='w-full flex justify-between items-center'>
                 <div className='flex gap-1 flex-col'>
                     <h1 className='text-2xl font-bold '>Your Friends</h1> 
@@ -36,7 +40,23 @@ const Friends = () => {
                         </button>
                     ))}
                 </div>
-                {optState==='All Friends' && (<div className='overflow-y-auto thin-scroll max-h-[350px] flex flex-col gap-4'>
+                {optState==='All Friends' && (<div className='overflow-y-auto thin-scroll flex flex-col gap-4 relative rounded-full'>
+                    <div className='shadow-md p-4 rounded-lg bg-gray-100 flex items-center justify-start gap-6'>
+                        {recentFriends.map((friend, index) => {
+                            return (
+                                <>
+                                    <div key={index} className='flex flex-col items-center'>
+                                        <div className='p-1 rounded-full border border-black'><img src="image.png" className='w-10  rounded-full'/></div>
+                                        <span className='text-xs text-black/50'>{friend.name}</span>
+                                    </div>
+                               </>
+                            )
+                        })}
+                    </div>
+                    <span className='absolute top-0 left-[41%] text-gray-500 text-xs'>Recent Friends</span>
+                </div>)}
+                {optState==='All Friends' && (<div className='overflow-y-auto thin-scroll max-h-[305px] f;ex-1 flex flex-col gap-4'>
+                
                     {flist.map((friend, index) => (
                         <div key={index} className='flex items-center justify-between p-4 hover:bg-gray-100 rounded-lg cursor-pointer'>
                             <div className='flex items-center gap-4'>
@@ -62,7 +82,7 @@ const Friends = () => {
                         </div>
                     ))}
                 </div>)}
-                {optState==='Online' && (<div className='overflow-y-auto thin-scroll max-h-[350px] flex flex-col gap-4'>
+                {optState==='Online' && (<div className='overflow-y-auto thin-scroll max-h-[425px] min-h-[425px] flex flex-col gap-4'>
                     {flist.filter((f)=>f.status==='online').map((friend, index) => (
                         <div key={index} className='flex items-center justify-between p-4 hover:bg-gray-100 rounded-lg cursor-pointer'>
                             <div className='flex items-center gap-4'>
